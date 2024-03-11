@@ -1,6 +1,12 @@
 # Editor
 .idea
+.mono
+
+# devcontainer
+.devcontainer
+.github
 
 # dotnet
 *obj
 *bin
+out

@@ -1,0 +1,11 @@
+services:
+  backend-app:
+    build:
+      context: .
+      dockerfile: development.Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - 5000:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
