@@ -1,4 +1,4 @@
-.PHONY: build start stop logs test
+.PHONY: build start stop logs test generate-migration run-migrations
 
 # Build image
 build:
@@ -19,5 +19,13 @@ logs:
 # Run unit tests
 test:
 	docker-compose run --rm backend-app dotnet test
+
+# Generate migrations base on model changes
+generate-migration:
+	dotnet ef migrations add $(name) --project src/Backend.Infrastructure --startup-project src/Backend.Api
+
+# Run all migrations
+run-migrations:
+	docker-compose exec backend-app dotnet ef database update --project src/Backend.Infrastructure --startup-project src/Backend.Api
 
 
