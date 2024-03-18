@@ -1,11 +1,21 @@
+using Backend.Api;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// PostgreSQL configuration
+var configuration = builder.Configuration;
+
+// Dependency injection
+var dependencyInversion = new DependencyInversion(builder.Services, builder.Configuration);
+dependencyInversion.AddServices();
+dependencyInversion.AddRepositories();
+dependencyInversion.AddPostgreSqlContext();
 
 var app = builder.Build();
 
