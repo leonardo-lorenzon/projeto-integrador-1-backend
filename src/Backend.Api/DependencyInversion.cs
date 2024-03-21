@@ -24,7 +24,7 @@ public class DependencyInversion
 
     public void AddRepositories()
     {
-        _serviceCollection.AddTransient<IUserRepository, UserRepository>();
+        _serviceCollection.AddTransient<IUserRepository, PostgresUserRepository>();
     }
 
     public void AddPostgreSqlContext()
