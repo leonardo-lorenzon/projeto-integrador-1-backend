@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Infrastructure.Repositories;
 
-public class UserRepository : IUserRepository
+public class PostgresUserRepository : IUserRepository
 {
     private readonly ApplicationDbContext _dbContext;
 
-    public UserRepository(
+    public PostgresUserRepository(
         ApplicationDbContext dbContext
         )
     {
