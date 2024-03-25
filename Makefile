@@ -2,7 +2,7 @@
 
 # Build image
 build:
-	docker-compose build
+	docker-compose build --build-arg UID=$$(id -u) --build-arg GID=$$(id -g)
 
 # Start multi-container application
 start:
@@ -22,7 +22,7 @@ test:
 
 # Generate migrations base on model changes
 generate-migration:
-	dotnet ef migrations add $(name) --project src/Backend.Infrastructure --startup-project src/Backend.Api
+	docker-compose exec backend-app dotnet ef migrations add $(name) --project src/Backend.Infrastructure --startup-project src/Backend.Api
 
 # Run all migrations
 run-migrations:
