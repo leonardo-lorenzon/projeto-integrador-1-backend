@@ -1,8 +1,10 @@
 db/password.txt
 
+
 # Editor
 .idea
 .mono
+Backend.sln.DotSettings.user
 
 # devcontainer
 .devcontainer
