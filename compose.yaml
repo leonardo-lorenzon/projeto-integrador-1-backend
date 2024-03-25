@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: development.Dockerfile
-#    volumes:
-#      - ./:/app
+    volumes:
+      - ./:/home/nonroot/app
     ports:
       - 5000:80
     environment:
