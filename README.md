@@ -50,13 +50,13 @@ The Postgres database will be available on default port `5432`. See the connecti
 With the containers running you can run the migrations to setup the local database:
 
 ```shell
-make run-migrations
+make migrations-run
 ```
 
 To create a new migration after a change on database models run:
 
 ```shell
-make generate-migration name=< MigrationName >
+make migration-generate name=< MigrationName >
 ```
 
 > **Warning!** Do not change migrations that are already on `master` branch.

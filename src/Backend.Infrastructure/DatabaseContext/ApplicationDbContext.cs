@@ -6,6 +6,7 @@ namespace Backend.Infrastructure.DatabaseContext;
 public class ApplicationDbContext : DbContext
 {
     public DbSet<UserModel> Users { get; set; }
+    public DbSet<CredentialModel> Credentials { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
