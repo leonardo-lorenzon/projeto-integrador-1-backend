@@ -1,4 +1,4 @@
-using Backend.Domain.User.contracts;
+using Backend.Domain.Authentication.Contracts;
 
 namespace Backend.UnitTest.TestSubclasses;
 

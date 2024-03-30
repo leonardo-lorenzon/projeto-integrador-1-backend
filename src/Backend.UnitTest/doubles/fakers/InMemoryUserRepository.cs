@@ -1,3 +1,4 @@
+using Backend.Domain.Authentication.Contracts;
 using Backend.Domain.User.contracts;
 using Backend.Domain.User.Repositories;
 

@@ -1,7 +1,8 @@
 using Backend.Api.Controllers.errors;
 using Backend.Api.Controllers.User;
+using Backend.Domain.Authentication.Contracts;
+using Backend.Domain.Errors;
 using Backend.Domain.User.contracts;
-using Backend.Domain.User.errors;
 using Backend.Domain.User.Services;
 using Backend.UnitTest.Builders;
 using Microsoft.AspNetCore.Mvc;

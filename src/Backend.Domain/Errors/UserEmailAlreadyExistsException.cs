@@ -1,4 +1,4 @@
-namespace Backend.Domain.User.errors;
+namespace Backend.Domain.Errors;
 
 public class UserEmailAlreadyExistsException : Exception
 {

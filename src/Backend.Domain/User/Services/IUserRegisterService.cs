@@ -1,3 +1,4 @@
+using Backend.Domain.Authentication.Contracts;
 using Backend.Domain.User.contracts;
 
 namespace Backend.Domain.User.Services;

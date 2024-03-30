@@ -1,6 +1,6 @@
 using Backend.Api.Controllers.errors;
 using Backend.Api.Controllers.User.Requests;
-using Backend.Domain.User.errors;
+using Backend.Domain.Errors;
 using Backend.Domain.User.Services;
 using Microsoft.AspNetCore.Mvc;
 

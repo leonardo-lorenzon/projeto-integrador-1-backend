@@ -4,6 +4,10 @@ const string developmentCorsPolicy = "developmentCorsPolicy";
 
 var builder = WebApplication.CreateBuilder(args);
 
+Dotenv.Load();
+
+builder.Configuration.AddEnvironmentVariables();
+
 builder.Services.AddCors(options =>
     {
         options.AddPolicy(
@@ -22,7 +26,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Dependency injection
-var dependencyInversion = new DependencyInversion(builder.Services, builder.Configuration);
+var dependencyInversion = new DependencyInversion(builder.Services);
+dependencyInversion.SetEnvironmentVariables();
 dependencyInversion.AddServices();
 dependencyInversion.AddRepositories();
 dependencyInversion.AddPostgreSqlContext();

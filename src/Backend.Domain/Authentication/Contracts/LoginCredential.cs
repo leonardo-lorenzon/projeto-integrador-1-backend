@@ -1,6 +1,7 @@
+using BCrypt.Net;
 using BC = BCrypt.Net.BCrypt;
 
-namespace Backend.Domain.User.contracts;
+namespace Backend.Domain.Authentication.Contracts;
 
 // WARNING: Changes on this class can break login for all users
 public class LoginCredential
@@ -24,6 +25,13 @@ public class LoginCredential
 
     public bool VerifyPasswordAgainstHash(string hashStored)
     {
-        return BC.EnhancedVerify(Password, hashStored);
+        try
+        {
+            return BC.EnhancedVerify(Password, hashStored);
+        }
+        catch (SaltParseException)
+        {
+            return false;
+        }
     }
 }
