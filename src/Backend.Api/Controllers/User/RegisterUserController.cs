@@ -42,7 +42,13 @@ public class RegisterUserController : ControllerBase
         }
         catch (UserEmailAlreadyExistsException)
         {
-            return UnprocessableEntity(new ErrorResponse(ApplicationErrors.UserEmailAlreadyExists, "User with given email already exists"));
+            return UnprocessableEntity(new ErrorResponse(ApplicationErrors.UserEmailAlreadyExists,
+                "User with given email already exists"));
+        }
+        catch (FailToCreateUserWithCredentialException)
+        {
+            return UnprocessableEntity(new ErrorResponse(ApplicationErrors.FailToCreateUserWithCredential,
+                "Something went wrong when trying to create a user with credential"));
         }
 
         return Ok();
