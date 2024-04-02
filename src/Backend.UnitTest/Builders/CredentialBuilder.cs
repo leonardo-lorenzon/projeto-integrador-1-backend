@@ -5,27 +5,27 @@ namespace Backend.UnitTest.Builders;
 
 public class CredentialBuilder
 {
-    private readonly CredentialTestSubclass _credential;
+    private readonly LoginCredentialTestSubclass _loginCredential;
 
     public CredentialBuilder()
     {
-        _credential = BuildDefault();
+        _loginCredential = BuildDefault();
     }
 
-    public Credential Build()
+    public LoginCredential Build()
     {
-        return _credential;
+        return _loginCredential;
     }
 
     public CredentialBuilder WithEmail(string email)
     {
-        _credential.UpdateEmail(email);
+        _loginCredential.UpdateEmail(email);
 
         return this;
     }
 
-    private static CredentialTestSubclass BuildDefault()
+    private static LoginCredentialTestSubclass BuildDefault()
     {
-        return new CredentialTestSubclass("name@test.com", "pass123");
+        return new LoginCredentialTestSubclass("name@test.com", "pass123");
     }
 }

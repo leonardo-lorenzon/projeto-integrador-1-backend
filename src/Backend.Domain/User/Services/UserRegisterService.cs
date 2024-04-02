@@ -13,7 +13,7 @@ public class UserRegisterService : IUserRegisterService
         _userRepository = userRepository;
     }
 
-    public async Task CreateUserWithCredential(UserEntity user, Credential credential)
+    public async Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential)
     {
         var existingUser = await _userRepository.FindByEmail(user.Email);
 
@@ -22,6 +22,6 @@ public class UserRegisterService : IUserRegisterService
             throw new UserEmailAlreadyExistsException("User already exist");
         }
 
-        await _userRepository.CreateUserWithCredential(user, credential);
+        await _userRepository.CreateUserWithCredential(user, loginCredential);
     }
 }

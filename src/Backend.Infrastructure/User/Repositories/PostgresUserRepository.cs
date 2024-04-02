@@ -2,11 +2,11 @@ using Backend.Domain.User.contracts;
 using Backend.Domain.User.errors;
 using Backend.Domain.User.Repositories;
 using Backend.Infrastructure.DatabaseContext;
-using Backend.Infrastructure.Repositories.Models;
+using Backend.Infrastructure.DatabaseContext.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Backend.Infrastructure.Repositories;
+namespace Backend.Infrastructure.User.Repositories;
 
 public class PostgresUserRepository : IUserRepository
 {
@@ -22,7 +22,7 @@ public class PostgresUserRepository : IUserRepository
         _logger = logger;
     }
 
-    public async Task CreateUserWithCredential(UserEntity user, Credential credential)
+    public async Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential)
     {
         var userModel = new UserModel(
                 user.UserId,
@@ -34,8 +34,8 @@ public class PostgresUserRepository : IUserRepository
             );
 
         var credentialModel = new CredentialModel(
-            credential.Email,
-            credential.HashedPassword(),
+            user.UserId,
+            loginCredential.HashedPassword(),
             DateTime.UtcNow,
             DateTime.UtcNow
             );

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Infrastructure.Repositories.Models;
+namespace Backend.Infrastructure.DatabaseContext.Models;
 
 [PrimaryKey(nameof(UserId))]
 [Index(nameof(Email), IsUnique = true)]

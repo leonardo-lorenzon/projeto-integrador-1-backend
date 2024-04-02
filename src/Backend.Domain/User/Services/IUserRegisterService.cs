@@ -4,5 +4,5 @@ namespace Backend.Domain.User.Services;
 
 public interface IUserRegisterService
 {
-    public Task CreateUserWithCredential(UserEntity user, Credential credential);
+    public Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential);
 }
