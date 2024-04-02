@@ -39,9 +39,9 @@ public class UserRequest
         );
     }
 
-    public Credential ToCredential()
+    public LoginCredential ToCredential()
     {
-        return new Credential(
+        return new LoginCredential(
             Email,
             Password
         );

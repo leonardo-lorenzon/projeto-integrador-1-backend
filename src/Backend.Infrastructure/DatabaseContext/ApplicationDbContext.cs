@@ -1,4 +1,4 @@
-using Backend.Infrastructure.Repositories.Models;
+using Backend.Infrastructure.DatabaseContext.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Infrastructure.DatabaseContext;

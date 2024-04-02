@@ -3,7 +3,7 @@ using BC = BCrypt.Net.BCrypt;
 namespace Backend.Domain.User.contracts;
 
 // WARNING: Changes on this class can break login for all users
-public class Credential
+public class LoginCredential
 {
     private const int WorkFactor = 11;
 
@@ -11,7 +11,7 @@ public class Credential
     private string Password { get; }
 
 
-    public Credential(string email, string password)
+    public LoginCredential(string email, string password)
     {
         Email = email;
         Password = password;

@@ -1,7 +1,7 @@
 using Backend.Domain.User.Repositories;
 using Backend.Domain.User.Services;
 using Backend.Infrastructure.DatabaseContext;
-using Backend.Infrastructure.Repositories;
+using Backend.Infrastructure.User.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Api;

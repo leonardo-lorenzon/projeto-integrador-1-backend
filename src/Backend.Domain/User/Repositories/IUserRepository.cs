@@ -6,5 +6,5 @@ public interface IUserRepository
 {
     public Task<UserEntity?> FindByEmail(string email);
 
-    public Task CreateUserWithCredential(UserEntity user, Credential credential);
+    public Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential);
 }

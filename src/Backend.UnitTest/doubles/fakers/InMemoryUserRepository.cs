@@ -8,9 +8,9 @@ public class InMemoryUserRepository : IUserRepository
     private readonly Dictionary<string, UserEntity> _users = new Dictionary<string, UserEntity>();
     private readonly Dictionary<string, string> _credentials = new Dictionary<string, string>();
 
-    public async Task CreateUserWithCredential(UserEntity user, Credential credential)
+    public async Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential)
     {
-        _credentials.Add(credential.Email, credential.HashedPassword());
+        _credentials.Add(loginCredential.Email, loginCredential.HashedPassword());
         _users.Add(user.Email, user);
 
         await Task.CompletedTask;

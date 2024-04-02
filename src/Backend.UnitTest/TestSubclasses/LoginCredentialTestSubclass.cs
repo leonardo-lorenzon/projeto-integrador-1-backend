@@ -2,9 +2,9 @@ using Backend.Domain.User.contracts;
 
 namespace Backend.UnitTest.TestSubclasses;
 
-public class CredentialTestSubclass : Credential
+public class LoginCredentialTestSubclass : LoginCredential
 {
-    public CredentialTestSubclass(string email, string password) : base(email, password)
+    public LoginCredentialTestSubclass(string email, string password) : base(email, password)
     {
     }
 

@@ -42,7 +42,7 @@ public class RegisterUserControllerTest
     {
         // Arrange
         _userRegisterService
-            .When(x => x.CreateUserWithCredential(Arg.Any<UserEntity>(), Arg.Any<Credential>()))
+            .When(x => x.CreateUserWithCredential(Arg.Any<UserEntity>(), Arg.Any<LoginCredential>()))
             .Do(x => throw new UserEmailAlreadyExistsException());
 
         var userRequest = new UserRequestBuilder().Build();

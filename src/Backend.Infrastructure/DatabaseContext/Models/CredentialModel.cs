@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Infrastructure.Repositories.Models;
+namespace Backend.Infrastructure.DatabaseContext.Models;
 
-[PrimaryKey(nameof(Email))]
+[PrimaryKey(nameof(UserId))]
 public class CredentialModel
 {
-    [Column(TypeName = "varchar(50)")]
-    public string Email { get; set; }
+    public Guid UserId { get; set; }
 
     [Column(TypeName = "varchar(100)")]
     public string HashedPassword { get; set; }
@@ -15,9 +14,9 @@ public class CredentialModel
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
-    public CredentialModel(string email, string hashedPassword, DateTime createdAt, DateTime updatedAt)
+    public CredentialModel(Guid userId, string hashedPassword, DateTime createdAt, DateTime updatedAt)
     {
-        Email = email;
+        UserId = userId;
         HashedPassword = hashedPassword;
         CreatedAt = createdAt;
         UpdatedAt = updatedAt;
