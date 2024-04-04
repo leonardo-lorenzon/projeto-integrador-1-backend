@@ -1,5 +1,6 @@
+using Backend.Domain.Authentication.Contracts;
+using Backend.Domain.Errors;
 using Backend.Domain.User.contracts;
-using Backend.Domain.User.errors;
 using Backend.Domain.User.Repositories;
 
 namespace Backend.Domain.User.Services;

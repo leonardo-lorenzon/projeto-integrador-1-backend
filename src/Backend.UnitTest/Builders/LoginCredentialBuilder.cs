@@ -1,13 +1,13 @@
-using Backend.Domain.User.contracts;
+using Backend.Domain.Authentication.Contracts;
 using Backend.UnitTest.TestSubclasses;
 
 namespace Backend.UnitTest.Builders;
 
-public class CredentialBuilder
+public class LoginCredentialBuilder
 {
     private readonly LoginCredentialTestSubclass _loginCredential;
 
-    public CredentialBuilder()
+    public LoginCredentialBuilder()
     {
         _loginCredential = BuildDefault();
     }
@@ -17,7 +17,7 @@ public class CredentialBuilder
         return _loginCredential;
     }
 
-    public CredentialBuilder WithEmail(string email)
+    public LoginCredentialBuilder WithEmail(string email)
     {
         _loginCredential.UpdateEmail(email);
 

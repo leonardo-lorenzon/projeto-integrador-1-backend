@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Backend.Domain.Authentication.Contracts;
 using Backend.Domain.User.contracts;
 
 namespace Backend.Api.Controllers.User.Requests;

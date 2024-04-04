@@ -1,5 +1,13 @@
 # Projeto Integrador I - Aplicação Backend
 
+## Stack
+
+This projects uses:
+
+- [.NET](https://learn.microsoft.com/en-us/dotnet/standard/get-started)
+- [PostgreSQL](https://www.postgresql.org/docs/)
+- [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/)
+
 ## Running locally
 
 > This setup was created for linux machines.
@@ -16,10 +24,14 @@ To run this application locally will need to have the following software applica
 - [dotnet-sdk-8.0](https://learn.microsoft.com/en-us/dotnet/core/install/)
 - [Entity Framework Core tools](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
+#### .env file
+
+Create a `.env` file at the solution root directory. See `.env.example` file.
+
 #### Database password file
 
 Add a database password file `password.txt` inside `db` folder containing a single line with the database password.
-Check connection string at `appsettings.Development.json` file for the local database password.
+Check connection string at `.env.example` file for the local database password.
 
 ### Building
 
@@ -43,7 +55,7 @@ The backend application will be available on port `5000`. You can access the swa
 http://127.0.0.1:5000/swagger/index.html, or call the APIs directly using cUrl, Postman or any other tool.
 
 The Postgres database will be available on default port `5432`. See the connection string on
-`appsettings.Development.json` file.
+`.env.example` file.
 
 ### Migrations
 

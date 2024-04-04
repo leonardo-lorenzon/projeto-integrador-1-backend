@@ -12,4 +12,9 @@
   <ItemGroup>
     <Folder Include="User\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions">
+      <HintPath>..\..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.abstractions\8.0.3\lib\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

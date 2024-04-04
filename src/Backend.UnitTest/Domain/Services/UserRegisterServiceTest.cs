@@ -1,4 +1,4 @@
-using Backend.Domain.User.errors;
+using Backend.Domain.Errors;
 using Backend.UnitTest.Builders;
 using Backend.UnitTest.factories;
 
@@ -14,7 +14,7 @@ public class UserRegisterServiceTest
         var user = new UserEntityBuilder()
             .WithEmail(userEmail)
             .Build();
-        var credential = new CredentialBuilder()
+        var credential = new LoginCredentialBuilder()
             .WithEmail(userEmail)
             .Build();
 
@@ -37,7 +37,7 @@ public class UserRegisterServiceTest
         var user = new UserEntityBuilder()
             .WithEmail(userEmail)
             .Build();
-        var credential = new CredentialBuilder()
+        var credential = new LoginCredentialBuilder()
             .WithEmail(userEmail)
             .Build();
 
@@ -67,7 +67,7 @@ public class UserRegisterServiceTest
         var user = new UserEntityBuilder()
             .WithEmail(userEmail)
             .Build();
-        var credential = new CredentialBuilder()
+        var credential = new LoginCredentialBuilder()
             .WithEmail(userEmail)
             .Build();
 
