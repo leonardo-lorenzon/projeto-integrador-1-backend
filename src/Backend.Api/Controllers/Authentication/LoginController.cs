@@ -25,6 +25,7 @@ public class LoginController : ControllerBase
     [ProducesResponseType<LoginResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType<ErrorResponse>(StatusCodes.Status422UnprocessableEntity)]
+    [ProducesResponseType<ErrorResponse>(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         if (!ModelState.IsValid)
@@ -45,7 +46,7 @@ public class LoginController : ControllerBase
         }
         catch (InvalidCredentialException)
         {
-            return UnprocessableEntity(new ErrorResponse(
+            return Unauthorized(new ErrorResponse(
                 ApplicationErrors.InvalidCredential,
                 "Login or password is wrong")
             );

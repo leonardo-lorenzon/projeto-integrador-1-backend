@@ -48,7 +48,7 @@ public class LoginControllerTest
     }
 
     [Fact]
-    public async Task ShouldReturn422IfCredentialIsInvalid()
+    public async Task ShouldReturn401IfCredentialIsInvalid()
     {
         // Arrange
         var loginRequest = new LoginRequest("test@test.com", "1234");
@@ -61,9 +61,9 @@ public class LoginControllerTest
         var apiResponse = await _controller.Login(loginRequest);
 
         // Assert
-        var result = apiResponse as UnprocessableEntityObjectResult;
+        var result = apiResponse as UnauthorizedObjectResult;
         var errorResponse = result?.Value as ErrorResponse;
-        Assert.Equal(422, result?.StatusCode);
+        Assert.Equal(401, result?.StatusCode);
 
         Assert.Equal("INVALID_CREDENTIAL", errorResponse?.Code);
     }
