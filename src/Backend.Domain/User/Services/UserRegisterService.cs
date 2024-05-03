@@ -23,6 +23,14 @@ public class UserRegisterService : IUserRegisterService
             throw new UserEmailAlreadyExistsException("User already exist");
         }
 
-        await _userRepository.CreateUserWithCredential(user, loginCredential);
+        var defaultTakerAccount = new Account(
+            Guid.NewGuid(),
+            user.UserId,
+            AccountType.Taker,
+            user.CreatedAt,
+            user.UpdatedAt
+        );
+
+        await _userRepository.CreateUserWithCredential(user, loginCredential, defaultTakerAccount);
     }
 }

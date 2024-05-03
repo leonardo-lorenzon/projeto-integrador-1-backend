@@ -23,7 +23,7 @@ public class PostgresUserRepository : IUserRepository
         _logger = logger;
     }
 
-    public async Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential)
+    public async Task CreateUserWithCredential(UserEntity user, LoginCredential loginCredential, Account account)
     {
         var userModel = new UserModel(
                 user.UserId,
@@ -32,6 +32,14 @@ public class PostgresUserRepository : IUserRepository
                 user.Email,
                 user.CreatedAt,
                 user.UpdatedAt
+            );
+
+        var accountModel = new AccountModel(
+            account.AccountId,
+            account.UserId,
+            account.Type.ToString(),
+            account.CreatedAt,
+            account.UpdatedAt
             );
 
         var credentialModel = new CredentialModel(
@@ -46,6 +54,9 @@ public class PostgresUserRepository : IUserRepository
         try
         {
             await _dbContext.Users.AddAsync(userModel);
+            await _dbContext.SaveChangesAsync();
+
+            await _dbContext.Accounts.AddAsync(accountModel);
             await _dbContext.SaveChangesAsync();
 
             await _dbContext.Credentials.AddAsync(credentialModel);
