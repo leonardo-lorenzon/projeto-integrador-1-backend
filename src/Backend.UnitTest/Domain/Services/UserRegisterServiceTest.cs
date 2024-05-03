@@ -60,6 +60,32 @@ public class UserRegisterServiceTest
     }
 
     [Fact]
+    public async Task ShouldCreateDefaultTakerAccount()
+    {
+        // Arrange
+        const string userEmail = "testuser@projeto.com";
+        var user = new UserEntityBuilder()
+            .WithEmail(userEmail)
+            .Build();
+        var credential = new LoginCredentialBuilder()
+            .WithEmail(userEmail)
+            .Build();
+
+        var factory = new UserRegisterServiceFactory();
+        var userRegisterService = factory.Build();
+
+        // Act
+        await userRegisterService.CreateUserWithCredential(user, credential);
+
+        // Assert
+        var accounts = await factory.UserRepository.GetAccount(user.UserId);
+
+        Assert.Single(accounts);
+        Assert.True(accounts[0].IsTaker());
+
+    }
+
+    [Fact]
     public async Task ShouldThrowExceptionIfUserAlreadyExist()
     {
         // Arrange
