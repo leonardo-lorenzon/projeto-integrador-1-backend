@@ -1,10 +1,13 @@
 using Backend.Domain.Authentication.Repositories;
 using Backend.Domain.Authentication.services;
 using Backend.Domain.Environment;
+using Backend.Domain.Provider.Repositories;
+using Backend.Domain.Provider.Servides;
 using Backend.Domain.User.Repositories;
 using Backend.Domain.User.Services;
 using Backend.Infrastructure.Authentication.Repositories;
 using Backend.Infrastructure.DatabaseContext;
+using Backend.Infrastructure.Provider.Repositories;
 using Backend.Infrastructure.User.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +26,7 @@ public class DependencyInversion
     {
         _serviceCollection.AddScoped<IUserRegisterService, UserRegisterService>();
         _serviceCollection.AddScoped<IAuthenticationService, AuthenticationService>();
+        _serviceCollection.AddScoped<IProviderService, ProviderService>();
     }
 
     public void AddRepositories()
@@ -30,6 +34,7 @@ public class DependencyInversion
         _serviceCollection.AddScoped<IUserRepository, PostgresUserRepository>();
         _serviceCollection.AddScoped<ICredentialRepository, PostgresCredentialRepository>();
         _serviceCollection.AddScoped<IAuthenticationRepository, PostgresAuthenticationRepository>();
+        _serviceCollection.AddScoped<IProviderServiceRepository, PostgresProviderServiceRepository>();
     }
 
     public void AddPostgreSqlContext()
