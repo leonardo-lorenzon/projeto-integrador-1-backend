@@ -41,4 +41,14 @@ public class AuthenticationService : IAuthenticationService
 
         return token;
     }
+
+    public Task<bool> IsAuthenticated(string token)
+    {
+        if (TokenEntity.IsExpired(token, _environmentVariables.TokenSecretKey))
+        {
+            return Task.FromResult(false);
+        }
+
+        return Task.FromResult(true);
+    }
 }

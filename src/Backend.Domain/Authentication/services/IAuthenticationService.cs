@@ -5,4 +5,6 @@ namespace Backend.Domain.Authentication.services;
 public interface IAuthenticationService
 {
     public Task<TokenEntity> Login(LoginCredential credential);
+
+    public Task<bool> IsAuthenticated(string token);
 }
