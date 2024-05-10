@@ -2,7 +2,7 @@ using Backend.Domain.Authentication.Repositories;
 using Backend.Domain.Authentication.services;
 using Backend.Domain.Environment;
 using Backend.Domain.Provider.Repositories;
-using Backend.Domain.Provider.Servides;
+using Backend.Domain.Provider.Services;
 using Backend.Domain.User.Repositories;
 using Backend.Domain.User.Services;
 using Backend.Infrastructure.Authentication.Repositories;

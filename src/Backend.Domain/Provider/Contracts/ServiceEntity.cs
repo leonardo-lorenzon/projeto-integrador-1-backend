@@ -2,7 +2,7 @@
 
 namespace Backend.Domain.Provider.Contracts;
 
-public class Service
+public class ServiceEntity
 {
     public Guid Id { get; set; }
     public Guid AccountId { get; set; }
@@ -14,7 +14,7 @@ public class Service
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
-    public Service(
+    public ServiceEntity(
         Guid id,
         Guid accountId,
         string type,

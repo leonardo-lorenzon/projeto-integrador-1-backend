@@ -1,7 +1,7 @@
 using Backend.Api.Controllers.errors;
 using Backend.Api.Controllers.Provider.Requests;
 using Backend.Domain.Errors;
-using Backend.Domain.Provider.Servides;
+using Backend.Domain.Provider.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Api.Controllers.Provider;
@@ -19,6 +19,7 @@ public class ProviderServiceController : ControllerBase
 
     [HttpPost]
     [Route("service/{accountId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType<ErrorResponse>(StatusCodes.Status422UnprocessableEntity)]
     [ProducesResponseType<ErrorResponse>(StatusCodes.Status403Forbidden)]

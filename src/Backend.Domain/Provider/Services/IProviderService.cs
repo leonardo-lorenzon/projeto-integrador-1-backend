@@ -1,8 +1,10 @@
 using Backend.Domain.Provider.Contracts;
 
-namespace Backend.Domain.Provider.Servides;
+namespace Backend.Domain.Provider.Services;
 
 public interface IProviderService
 {
-    public Task AddService(Service service);
+    public Task AddService(ServiceEntity serviceEntity);
+
+    public Task<IEnumerable<ServiceEntity>> ListServices(SearchService searchService);
 }
