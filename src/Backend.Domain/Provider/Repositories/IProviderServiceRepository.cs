@@ -4,5 +4,6 @@ namespace Backend.Domain.Provider.Repositories;
 
 public interface IProviderServiceRepository
 {
-    public Task AddService(Service service);
+    public Task AddService(ServiceEntity serviceEntity);
+    public Task<IEnumerable<ServiceEntity>> ListServices(SearchService searchService);
 }

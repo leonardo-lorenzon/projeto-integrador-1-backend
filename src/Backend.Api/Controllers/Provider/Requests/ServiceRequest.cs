@@ -25,9 +25,9 @@ public class ServiceRequest
         Country = country;
     }
 
-    public Service ToDomain(string accountId)
+    public ServiceEntity ToDomain(string accountId)
     {
-        return new Service(
+        return new ServiceEntity(
                 Guid.NewGuid(),
                 Guid.Parse(accountId),
                 Type,

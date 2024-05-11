@@ -3,6 +3,7 @@ using Backend.Domain.Provider.Contracts;
 using Backend.Domain.Provider.Repositories;
 using Backend.Infrastructure.DatabaseContext;
 using Backend.Infrastructure.DatabaseContext.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Backend.Infrastructure.Provider.Repositories;
@@ -21,18 +22,18 @@ public class PostgresProviderServiceRepository : IProviderServiceRepository
         _logger = logger;
     }
 
-    public async Task AddService(Service service)
+    public async Task AddService(ServiceEntity serviceEntity)
     {
         var serviceModel = new ServiceModel(
-            service.Id,
-            service.AccountId,
-            service.Type,
-            service.Description,
-            service.City,
-            service.State,
-            service.Country,
-            service.CreatedAt,
-            service.UpdatedAt
+            serviceEntity.Id,
+            serviceEntity.AccountId,
+            serviceEntity.Type,
+            serviceEntity.Description,
+            serviceEntity.City,
+            serviceEntity.State,
+            serviceEntity.Country,
+            serviceEntity.CreatedAt,
+            serviceEntity.UpdatedAt
             );
 
         try
@@ -49,5 +50,28 @@ public class PostgresProviderServiceRepository : IProviderServiceRepository
 
             throw new FailToAddServiceException();
         }
+    }
+
+    public Task<IEnumerable<ServiceEntity>> ListServices(SearchService searchService)
+    {
+        var serviceModel = _dbContext.Services
+            .FromSql($"SELECT * FROM \"Services\"")
+            .Where(model => model.Type == searchService.Type)
+            .ToArray();
+
+        var services = serviceModel.Select(model => new ServiceEntity(
+                model.Id,
+                model.AccountId,
+                model.Type,
+                model.Description,
+                model.City,
+                model.State,
+                model.Country,
+                model.CreatedAt,
+                model.UpdatedAt
+            )
+        );
+
+        return Task.FromResult(services);
     }
 }

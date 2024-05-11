@@ -1,7 +1,7 @@
 using Backend.Domain.Provider.Contracts;
 using Backend.Domain.Provider.Repositories;
 
-namespace Backend.Domain.Provider.Servides;
+namespace Backend.Domain.Provider.Services;
 
 public class ProviderService : IProviderService
 {
@@ -12,8 +12,15 @@ public class ProviderService : IProviderService
         _providerServiceRepository = providerServiceRepository;
     }
 
-    public async Task AddService(Service service)
+    public async Task AddService(ServiceEntity serviceEntity)
     {
-        await _providerServiceRepository.AddService(service);
+        await _providerServiceRepository.AddService(serviceEntity);
+    }
+
+    public async Task<IEnumerable<ServiceEntity>> ListServices(SearchService searchService)
+    {
+        var services = await _providerServiceRepository.ListServices(searchService);
+
+        return services;
     }
 }
